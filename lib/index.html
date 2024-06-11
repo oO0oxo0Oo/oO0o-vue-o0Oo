@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+  <script src="./yuma.js">
+  </script>
+</head>
+
+<body>
+  <div id="root">
+    <button @click="changeStr">更改str</button>
+    <input type="text" y-model="str">
+    <div y-html="str"></div>
+    <div y-text="str"></div>
+    <div y-html="age"></div>
+    <div>
+      <input type="text" y-model="age">
+      <div y-html="str"></div>
+      <div y-text="str"></div>
+      <div y-html="age"></div>
+    </div>
+  </div>
+</body>
+
+<!-- 初始化Yuma框架实例，将根元素绑定到#root，并设置初始数据 -->
+<script>
+  const ym = new Yuma({
+    el: '#root',
+    data: {
+      str: '<h3>VUE响应式</h3>',
+      age: 12
+    },
+    methods: {
+      changeStr() {
+        this.str += '!'
+      }
+    }
+  })
+</script>
+
+</html>
